@@ -27,7 +27,9 @@ function init() {
     scene.add(light);
     scene.add(new THREE.AmbientLight(0x404040, 100));
     // text
-    const textAboutMe = "";
+    const textAboutMe = "Hi, I'm Bryan de Vuono. \
+    Student of RUAS and I study Comp Sci \
+    ";
     createText(scene, "DejaVu", 2, 0.5, {x: -0.5, y: 0.5, z: 0}, {x: -10, y: 15, z: 10});
     // Model Loader
     const loader = new GLTFLoader().setPath('./public/mazda/');
@@ -56,6 +58,8 @@ function init() {
 
     // Road
     createRoad();
+    createRoad();
+    createRoad();
     createCityEnvironment();
 
     // Obstacles
@@ -68,12 +72,13 @@ function init() {
 
 function createRoad() {
     const roadShape = new THREE.Shape();
-    roadShape.moveTo(0, 20); // (z, x)
-    roadShape.lineTo(2, 5);
+    roadShape.moveTo(0, 20); // (length, width)
+    roadShape.lineTo(10, 5);
     roadShape.lineTo(0, 0);
     roadShape.lineTo(0, 0);
     roadShape.lineTo(0, 0);
 
+    // z-index hier maakt de weg langer
     const curve = new THREE.CatmullRomCurve3([
         new THREE.Vector3(0, 0, 0),
         new THREE.Vector3(0, 0, 100),

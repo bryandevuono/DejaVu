@@ -27,7 +27,8 @@ function init() {
     scene.add(light);
     scene.add(new THREE.AmbientLight(0x404040, 100));
     // text
-    createText(scene, "DejaVu", 2, 0.5);
+    const textAboutMe = "";
+    createText(scene, "DejaVu", 2, 0.5, {x: -0.5, y: 0.5, z: 0}, {x: -10, y: 15, z: 10});
     // Model Loader
     const loader = new GLTFLoader().setPath('./public/mazda/');
     loader.load('scene.gltf', (gltf) => {
